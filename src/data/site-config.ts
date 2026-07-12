@@ -1,19 +1,19 @@
 export const siteConfig = {
-  name: "Joseph Portfolio",
-  title: "Joseph — Full Stack Developer",
+  name: "Joseph Carabantes Portfolio",
+  title: "Joseph Carabantes — Full Stack Developer",
   description:
     "Portafolio profesional de desarrollador Full Stack especializado en Next.js, NestJS, TypeScript y análisis de datos. Explora proyectos, experiencia y forma de contacto.",
-  url: "https://tu-dominio.vercel.app",
+  url: "https://carabantesjoseph-portfolio.vercel.app/",
   ogImage: "/og-image.png",
   author: {
-    name: "Joseph",
+    name: "Joseph Carabantes",
     role: "Full Stack Developer",
-    email: "tu-email@ejemplo.com",
+    email: "carabantesjoseph7@gmail.com",
     location: "Honduras",
   },
   links: {
     github: "https://github.com/CarJoshEly",
-    linkedin: "https://linkedin.com/in/tu-usuario",
+    linkedin: "https://www.linkedin.com/in/josephcarabantes/",
   },
   nav: [
     { label: "Inicio", href: "/" },
