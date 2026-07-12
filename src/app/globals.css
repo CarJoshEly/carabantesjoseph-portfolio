@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   SISTEMA DE DISEÑO — Portafolio Full Stack (ver Prompt 2)
+   Tailwind v4 usa configuración CSS-first: los tokens definidos en
+   @theme se convierten automáticamente en utilidades (bg-background,
+   text-primary, rounded-lg, shadow-glow, font-display, etc.)
+   ========================================================================== */
+
+:root {
+  /* Fondos — modo oscuro (default) */
+  --background: #0a0a0b;
+  --background-secondary: #111113;
+  --surface: #161618;
+  --surface-hover: #1c1c1f;
+  --border: #26262a;
+  --border-hover: #33333a;
+
+  /* Acento principal — verde esmeralda */
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --primary-muted: rgba(16, 185, 129, 0.12);
+  --primary-glow: rgba(16, 185, 129, 0.25);
+
+  /* Acento secundario — indigo */
+  --secondary: #6366f1;
+  --secondary-muted: rgba(99, 102, 241, 0.12);
+
+  /* Texto */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-on-primary: #052e1b;
+
+  /* Estados */
+  --success: #22c55e;
+  --error: #ef4444;
+  --warning: #f59e0b;
+
+  /* Sombras (dark mode) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.15);
+}
+
+/* Modo claro — alternativa vía next-themes ([data-theme="light"] en <html>) */
+[data-theme="light"] {
+  --background: #ffffff;
+  --background-secondary: #f7f7f8;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --border: #e5e5e7;
+  --border-hover: #d4d4d8;
+
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --primary-muted: rgba(16, 185, 129, 0.1);
+  --primary-glow: rgba(16, 185, 129, 0.18);
+
+  --secondary: #6366f1;
+  --secondary-muted: rgba(99, 102, 241, 0.1);
+
+  --text-primary: #0a0a0b;
+  --text-secondary: #52525b;
+  --text-tertiary: #a1a1aa;
+  --text-on-primary: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-glow: var(--primary-glow);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-muted: var(--secondary-muted);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-on-primary: var(--text-on-primary);
+
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+
+  --font-display: var(--font-display), "Space Grotesk", sans-serif;
+  --font-body: var(--font-body), "Inter", sans-serif;
+  --font-mono: var(--font-mono), "IBM Plex Mono", monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background-color: var(--primary-muted);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
