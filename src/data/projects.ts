@@ -1,4 +1,5 @@
 import { Project } from "@/types/project";
+import { validateProjects } from "@/lib/validate-data";
 
 /**
  * ============================================================
@@ -7,7 +8,10 @@ import { Project } from "@/types/project";
  * Para agregar un proyecto nuevo:
  *   1. Copia sus imágenes a /public/images/projects/{slug}/
  *   2. Agrega un objeto que cumpla la interfaz `Project` al array.
- *   3. Guarda. TypeScript marcará error si falta un campo obligatorio.
+ *   3. Guarda. TypeScript marcará error si falta un campo obligatorio,
+ *      y `validateProjects()` lanzará un error descriptivo en runtime
+ *      si algún valor no cumple el formato esperado (fecha, slug, color,
+ *      URLs, etc.) o si dos proyectos comparten el mismo slug.
  *
  * No necesitas tocar ningún componente: ProjectsGrid, ProjectCard,
  * los filtros y las páginas /proyectos y /proyectos/[slug] leen
@@ -37,3 +41,5 @@ import { Project } from "@/types/project";
  */
 
 export const projects: Project[] = [];
+
+validateProjects(projects);
