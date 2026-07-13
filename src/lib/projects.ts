@@ -1,11 +1,15 @@
 import { projects } from "@/data/projects";
 import { Project, ProjectCategory } from "@/types/project";
 
-/** Todos los proyectos, ordenados por fecha descendente (más reciente primero). */
+/**
+ * Todos los proyectos, en el orden EN QUE ESTÁN DECLARADOS en data/projects.ts.
+ * A propósito no se ordenan por fecha: el orden es una decisión de jerarquía
+ * ("los más robustos primero, o mixto"), no cronológica — así que la posición
+ * en el array de data/projects.ts ES el control de orden. Para reordenar,
+ * mueve el objeto de proyecto a otra posición del array.
+ */
 export function getAllProjects(): Project[] {
-  return [...projects].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  return [...projects];
 }
 
 /** Solo los proyectos marcados como `featured: true`, para el Home. */

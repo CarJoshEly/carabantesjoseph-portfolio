@@ -33,6 +33,7 @@ import {
   LineChart,
   MessageSquareCode,
   Gauge,
+  Car,
   type LucideIcon,
 } from "lucide-react";
 
@@ -80,6 +81,7 @@ export const iconMap = {
   FolderGit2,
   MessageSquareCode,
   Gauge,
+  Car,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;
