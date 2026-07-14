@@ -42,6 +42,134 @@ import { validateProjects } from "@/lib/validate-data";
 
 export const projects: Project[] = [
   {
+    id: "factus-ai",
+    slug: "factus-ai",
+    name: "FactusAI",
+    shortDescription:
+      "Gestión inteligente de facturas: sube una imagen o PDF y la IA extrae los datos automáticamente para tu contabilidad.",
+    longDescription:
+      "Aplicación web para la digitalización y gestión de facturas mediante inteligencia artificial. El usuario sube una imagen o PDF de un comprobante (hasta 50MB) y el sistema extrae automáticamente los datos clave —proveedor, fecha, monto, categoría, tipo y documento— para que solo queden por confirmar antes de guardarse, con la opción de marcar si la factura es física.\n\nEl panel principal (dashboard) muestra un resumen ejecutivo con el total de facturas registradas, el monto acumulado y el monto del mes en curso. El módulo de Reportes permite seleccionar un período, generar un resumen en PDF y enviarlo por correo electrónico o WhatsApp, con un historial de los envíos realizados. Configuración permite editar los datos de la cuenta y actualizar la contraseña.\n\nConstruida con React, TypeScript y Node.js en el frontend/backend, Supabase como base de datos y autenticación, y la API de Google Generative AI (Gemini) para la extracción automática de los datos de cada factura.\n\nNota: la demo corre sobre el plan gratuito de Supabase, que pausa la base de datos por inactividad. Si al entrar solo se ve la pantalla de inicio de sesión, es porque la base está en pausa — puede tardar unos segundos en reactivarse.",
+    category: "full-stack",
+    status: "completado",
+    featured: true,
+    date: "2026-05-01",
+    coverImage: {
+      src: "/images/projects/factus-ai/registrar-factura.webp",
+      alt: "Panel de registro de factura de FactusAI con carga de comprobante y extracción automática de datos",
+    },
+    gallery: [
+      {
+        src: "/images/projects/factus-ai/registrar-factura.webp",
+        alt: "Registrar factura: subir comprobante y verificar los datos extraídos por IA",
+      },
+      {
+        src: "/images/projects/factus-ai/login.webp",
+        alt: "Pantalla de inicio de sesión de FactusAI",
+      },
+      {
+        src: "/images/projects/factus-ai/registro.webp",
+        alt: "Pantalla de creación de cuenta de FactusAI",
+      },
+      {
+        src: "/images/projects/factus-ai/dashboard.webp",
+        alt: "Dashboard con resumen ejecutivo: total de facturas, monto total y monto del mes",
+      },
+      {
+        src: "/images/projects/factus-ai/reportes.webp",
+        alt: "Reportes mensuales: generación y envío de resumen en PDF por correo o WhatsApp",
+      },
+      {
+        src: "/images/projects/factus-ai/configuracion.webp",
+        alt: "Pantalla de configuración de cuenta y seguridad",
+      },
+    ],
+    icon: "Sparkles",
+    color: "#0D9488",
+    technologies: [
+      { name: "React", icon: "Code2" },
+      { name: "TypeScript", icon: "FileCode2" },
+      { name: "Node.js", icon: "Server" },
+      { name: "Supabase", icon: "Cloud" },
+      { name: "Google Generative AI", icon: "Sparkles" },
+    ],
+    tags: ["ia", "saas", "facturacion"],
+    links: {
+      github: "https://github.com/CarJoshEly/Factus-AI",
+      demo: "https://factus-ai-eta.vercel.app/",
+    },
+  },
+  {
+    id: "workana-mvp",
+    slug: "workana-mvp",
+    name: "WorkanaMVP",
+    shortDescription:
+      "Plataforma de empleo independiente con doble rol (cliente/freelancer): publica proyectos, envía propuestas y gestiona contratos.",
+    longDescription:
+      "Plataforma web (MVP) para la gestión de empleo independiente, con un sistema de doble rol: el usuario se registra como Cliente (quien publica proyectos y contrata) o como Freelancer (quien explora proyectos y envía propuestas), cada uno con su propio panel y navegación.\n\nComo cliente: dashboard con resumen de proyectos publicados, propuestas recibidas, contratos y monto gastado; formulario para publicar un nuevo proyecto (título, categoría, presupuesto, descripción); gestión de \"Mis Proyectos\" con edición y cierre; y una vista de Contratos y propuestas donde puede aceptar o rechazar cada propuesta recibida.\n\nComo freelancer: exploración de proyectos abiertos, envío de propuestas con precio y mensaje de presentación, y seguimiento de sus propias propuestas. Ambos roles comparten un módulo de chat en tiempo real por proyecto para coordinar el trabajo, y una sección de perfil para editar nombre, biografía, foto y contraseña.\n\nConstruida con React y Node.js en el frontend/backend, y Supabase como base de datos, autenticación y gestión de roles, desplegada en Vercel.\n\nNota: al igual que FactusAI, la demo corre sobre el plan gratuito de Supabase, que pausa la base de datos por inactividad — si al entrar no puedes iniciar sesión, es porque la base está en pausa y necesita unos segundos para reactivarse.",
+    category: "full-stack",
+    status: "completado",
+    featured: true,
+    date: "2026-06-01",
+    coverImage: {
+      src: "/images/projects/workana-mvp/landing.webp",
+      alt: "Landing page de WorkanaMVP: 'Conecta talento con oportunidades reales'",
+    },
+    gallery: [
+      {
+        src: "/images/projects/workana-mvp/landing.webp",
+        alt: "Landing page con las opciones Publica proyectos, Encuentra talento y Trabaja sin límites",
+      },
+      {
+        src: "/images/projects/workana-mvp/registro.webp",
+        alt: "Registro de cuenta con selección de rol: Cliente o Freelancer",
+      },
+      {
+        src: "/images/projects/workana-mvp/dashboard-cliente.webp",
+        alt: "Dashboard de cliente con proyectos publicados, propuestas recibidas, contratos y gastado",
+      },
+      {
+        src: "/images/projects/workana-mvp/publicar-proyecto.webp",
+        alt: "Formulario para publicar un nuevo proyecto con título, categoría, presupuesto y descripción",
+      },
+      {
+        src: "/images/projects/workana-mvp/mis-proyectos.webp",
+        alt: "Listado de proyectos publicados por el cliente con opciones de editar y cerrar",
+      },
+      {
+        src: "/images/projects/workana-mvp/detalle-proyecto-cliente.webp",
+        alt: "Vista de detalle de proyecto para el cliente, con presupuesto y propuestas recibidas",
+      },
+      {
+        src: "/images/projects/workana-mvp/detalle-proyecto-freelancer.webp",
+        alt: "Vista de detalle de proyecto para el freelancer, con formulario para enviar propuesta",
+      },
+      {
+        src: "/images/projects/workana-mvp/contratos-propuestas.webp",
+        alt: "Contratos y propuestas: aceptar o rechazar propuestas recibidas",
+      },
+      {
+        src: "/images/projects/workana-mvp/chat.webp",
+        alt: "Chat en tiempo real entre cliente y freelancer sobre un proyecto",
+      },
+      {
+        src: "/images/projects/workana-mvp/perfil.webp",
+        alt: "Pantalla de perfil con edición de información y cambio de contraseña",
+      },
+    ],
+    icon: "Briefcase",
+    color: "#16A34A",
+    technologies: [
+      { name: "React", icon: "Code2" },
+      { name: "Node.js", icon: "Server" },
+      { name: "Supabase", icon: "Cloud" },
+    ],
+    tags: ["marketplace", "roles", "chat-en-tiempo-real"],
+    links: {
+      github: "https://github.com/CarJoshEly/Workana_MVP",
+      demo: "https://workana-mvp.vercel.app/",
+    },
+  },
+  {
     id: "control-habitos-movil",
     slug: "control-habitos-movil",
     name: "Control Hábitos UNICAH",
@@ -149,7 +277,7 @@ export const projects: Project[] = [
     category: "full-stack",
     status: "completado",
     featured: false,
-    date: "2025-01-01",
+    date: "2026-03-10",
     coverImage: {
       src: "/images/projects/gestor-vehiculos/panel.webp",
       alt: "Panel de gestión de alquiler de vehículos con formulario de registro y tarjetas de vehículos disponibles y alquilados",
@@ -179,7 +307,7 @@ export const projects: Project[] = [
     category: "full-stack",
     status: "completado",
     featured: false,
-    date: "2025-01-01",
+    date: "2026-03-01",
     coverImage: {
       src: "/images/projects/gestor-productos/productos.webp",
       alt: "Panel de gestión de productos con formulario de registro y tarjetas de productos por categoría",
@@ -219,7 +347,7 @@ export const projects: Project[] = [
     category: "full-stack",
     status: "completado",
     featured: false,
-    date: "2026-04-01",
+    date: "2026-01-28",
     coverImage: {
       src: "/images/projects/chatbot-unicah/chat.webp",
       alt: "Interfaz del ChatBot UNICAH mostrando el mensaje de bienvenida y el campo para escribir una pregunta",
