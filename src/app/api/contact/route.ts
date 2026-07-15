@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -98,18 +99,44 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // TODO: integrar un proveedor real de envío de correo, ej. Resend:
-  //
-  // import { Resend } from "resend";
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: "portfolio@tu-dominio.com",
-  //   to: process.env.CONTACT_EMAIL_TO!,
-  //   subject: `Nuevo mensaje de ${name}`.slice(0, 200), // truncado, sin saltos de línea de `name`
-  //   text: message,
-  //   replyTo: email,
-  // });
-  console.info("[contacto] Nuevo mensaje recibido:", { name, email });
+  // Envío real vía Resend, si hay API key configurada (RESEND_API_KEY en
+  // .env.local o en las variables de entorno de Vercel). Si no está
+  // configurada (ej. en desarrollo local sin .env.local), el mensaje
+  // simplemente se registra en el log del servidor sin fallar la
+  // petición — así el formulario nunca queda "roto" por falta de config.
+  const subject = `Nuevo mensaje de ${name}`.replace(/[\r\n]+/g, " ").slice(0, 200);
+
+  if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL_TO) {
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      const { error } = await resend.emails.send({
+        from: process.env.RESEND_FROM_EMAIL || "Portafolio <onboarding@resend.dev>",
+        to: process.env.CONTACT_EMAIL_TO,
+        replyTo: email,
+        subject,
+        text: `De: ${name} <${email}>\n\n${message}`,
+      });
+
+      if (error) {
+        console.error("[contacto] Error de Resend:", error);
+        return NextResponse.json(
+          { error: "No se pudo enviar el mensaje. Intenta de nuevo más tarde." },
+          { status: 502 }
+        );
+      }
+    } catch (err) {
+      console.error("[contacto] Error inesperado enviando el correo:", err);
+      return NextResponse.json(
+        { error: "No se pudo enviar el mensaje. Intenta de nuevo más tarde." },
+        { status: 502 }
+      );
+    }
+  } else {
+    console.info("[contacto] RESEND_API_KEY no configurada — solo se registra el mensaje:", {
+      name,
+      email,
+    });
+  }
 
   return NextResponse.json({ success: true }, { status: 200 });
 }

@@ -61,11 +61,17 @@ Todo el contenido vive en `src/data/*.ts`, tipado con las interfaces de `src/typ
 
 ## Formulario de contacto
 
-`src/app/api/contact/route.ts` valida el mensaje server-side y por defecto solo lo registra en el log (no envía correo real, para no requerir credenciales). Para conectar un proveedor real:
+`src/app/api/contact/route.ts` valida el mensaje server-side (con rate limiting de 5 solicitudes/10 min por IP y un campo honeypot anti-spam) y envía el correo real a través de [Resend](https://resend.com) — plan gratuito, 3,000 emails/mes, más que suficiente para un portafolio.
 
-1. Instala un proveedor, ej. `npm install resend`.
-2. Descomenta el bloque de ejemplo dentro de `route.ts`.
-3. Copia `.env.example` a `.env.local` y completa `RESEND_API_KEY` y `CONTACT_EMAIL_TO`.
+Para activarlo:
+
+1. Crea una cuenta gratuita en [resend.com](https://resend.com) y genera una API key en [resend.com/api-keys](https://resend.com/api-keys).
+2. Copia `.env.example` a `.env.local` y completa `RESEND_API_KEY` y `CONTACT_EMAIL_TO`.
+3. En Vercel: Project → Settings → Environment Variables → agrega las mismas dos variables (Production, Preview y Development) → Redeploy.
+
+Sin dominio propio verificado, los correos se envían desde `onboarding@resend.dev` — funciona sin configuración de DNS siempre que `CONTACT_EMAIL_TO` sea tu propio correo. Si en algún momento quieres enviar desde un dominio propio (ej. `contacto@tudominio.com`), verifica el dominio en el dashboard de Resend y define `RESEND_FROM_EMAIL`.
+
+Si `RESEND_API_KEY` no está configurada (ej. en desarrollo local sin `.env.local`), el formulario sigue funcionando normalmente — simplemente registra el mensaje en la consola del servidor en vez de enviarlo.
 
 ## Despliegue en Vercel
 
