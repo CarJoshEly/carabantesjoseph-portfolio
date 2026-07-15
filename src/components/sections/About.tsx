@@ -22,20 +22,11 @@ export function About() {
             />
             <div className="space-y-4 text-base text-text-secondary sm:text-lg">
               <p>
-                Soy {siteConfig.author.role.toLowerCase()} enfocado en construir productos
-                web completos: desde la base de datos hasta la interfaz que usa la persona
-                final. Me interesa tanto el código bien estructurado como los datos que
-                hay detrás de cada decisión de producto.
-              </p>
-              <p>
-                Trabajo principalmente con Next.js, NestJS, Prisma y TypeScript en el
-                día a día, y complemento ese trabajo con análisis de datos y dashboards
-                en Power BI y Python cuando el proyecto lo requiere.
-              </p>
-              <p>
-                Aprendo mejor construyendo cosas reales: cada proyecto en esta página
-                nació de un problema concreto que quise resolver bien, no solo de
-                terminarlo rápido.
+                Soy desarrollador especializado en aplicaciones web y móviles modernas,
+                análisis de datos, APIs y sistemas administrativos, etc. Interesado en
+                desarrollo full stack, automatización y soluciones tecnológicas. Capacidad
+                para trabajar en equipo, aprender rápidamente y adaptarse a nuevos entornos
+                tecnológicos.
               </p>
             </div>
           </Reveal>

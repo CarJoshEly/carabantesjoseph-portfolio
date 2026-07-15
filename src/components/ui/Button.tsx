@@ -14,6 +14,8 @@ interface ButtonOwnProps {
   size?: ButtonSize;
   href?: string;
   external?: boolean;
+  /** Fuerza la descarga del archivo en vez de navegar/abrir en pestaña nueva (ej. CV en PDF). */
+  download?: boolean | string;
   className?: string;
   children?: ReactNode;
 }
@@ -49,6 +51,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = "md",
       href,
       external,
+      download,
       className,
       children,
       disabled,
@@ -78,8 +81,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             href={href}
             className={classes}
             onClick={onClick}
-            target={isExternal ? "_blank" : undefined}
+            target={isExternal && !download ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
+            download={download}
             {...(linkProps as object)}
           >
             {children}

@@ -35,6 +35,8 @@ import {
   Gauge,
   Car,
   Briefcase,
+  Building2,
+  CalendarCheck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -84,6 +86,8 @@ export const iconMap = {
   Gauge,
   Car,
   Briefcase,
+  Building2,
+  CalendarCheck,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;

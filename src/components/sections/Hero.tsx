@@ -58,7 +58,7 @@ export function Hero() {
             Ver proyectos
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
           </Button>
-          <Button href="/docs/cv.pdf" variant="secondary" size="lg" external>
+          <Button href="/docs/cv.pdf" variant="secondary" size="lg" download="Joseph-Carabantes-CV.pdf">
             Descargar CV
             <Download className="h-4 w-4" strokeWidth={1.5} />
           </Button>

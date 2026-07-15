@@ -42,6 +42,69 @@ import { validateProjects } from "@/lib/validate-data";
 
 export const projects: Project[] = [
   {
+    id: "coworking-api",
+    slug: "coworking-api",
+    name: "Coworking API",
+    shortDescription:
+      "Plataforma de reservas de espacios de coworking, con roles de administrador y usuario, favoritos y notificaciones.",
+    longDescription:
+      "Plataforma web para explorar y reservar espacios de coworking (salas, escritorios y auditorios). Los usuarios pueden buscar espacios por nombre o ubicación, filtrar por tipo y por comodidades (Wifi, proyector, café), guardar espacios en favoritos, y reservar un horario específico dentro de un calendario de disponibilidad por día. Cada espacio tiene su propio sistema de reseñas con calificación de 1 a 5 estrellas.\n\nEl registro distingue dos roles desde el inicio: Usuario (explora, reserva y deja reseñas) y Administrador (además gestiona el catálogo de espacios). El panel de Administración permite crear, editar y eliminar espacios, definiendo nombre, ubicación, tipo, capacidad y descripción. El módulo de \"Mis reservas\" muestra el historial con su estado (confirmada, cancelada) y un centro de notificaciones avisa en tiempo real cuando una reserva es confirmada.\n\nEs el proyecto más completo arquitectónicamente: backend en NestJS con Prisma como ORM, y frontend en Next.js — separación clara entre API y cliente, con manejo de roles y permisos a nivel de backend.",
+    category: "full-stack",
+    status: "completado",
+    featured: true,
+    date: "2026-07-01",
+    coverImage: {
+      src: "/images/projects/coworking-api/explorar.webp",
+      alt: "Pantalla Explorar de Coworking API con filtros por tipo de espacio y comodidades",
+    },
+    gallery: [
+      {
+        src: "/images/projects/coworking-api/explorar.webp",
+        alt: "Explorar espacios con filtros por tipo (Salas, Escritorios, Auditorios) y comodidades",
+      },
+      {
+        src: "/images/projects/coworking-api/detalle-espacio.webp",
+        alt: "Detalle de espacio con selección de horario para reservar y reseñas de usuarios",
+      },
+      {
+        src: "/images/projects/coworking-api/favoritos.webp",
+        alt: "Espacios guardados en favoritos para reservar rápido",
+      },
+      {
+        src: "/images/projects/coworking-api/login.webp",
+        alt: "Pantalla de inicio de sesión de Coworking API",
+      },
+      {
+        src: "/images/projects/coworking-api/registro-admin.webp",
+        alt: "Registro de cuenta con rol Administrador",
+      },
+      {
+        src: "/images/projects/coworking-api/registro-usuario.webp",
+        alt: "Registro de cuenta con rol Usuario",
+      },
+      {
+        src: "/images/projects/coworking-api/mis-reservas.webp",
+        alt: "Mis reservas con historial de estado y notificación de reserva confirmada",
+      },
+      {
+        src: "/images/projects/coworking-api/admin-espacios.webp",
+        alt: "Panel de administración de espacios con formulario de edición y lista de espacios existentes",
+      },
+    ],
+    icon: "Building2",
+    color: "#15803D",
+    technologies: [
+      { name: "Next.js", icon: "Globe" },
+      { name: "NestJS", icon: "Layers" },
+      { name: "Prisma", icon: "Boxes" },
+    ],
+    tags: ["reservas", "roles", "arquitectura"],
+    links: {
+      github: "https://github.com/CarJoshEly/coworking-api",
+      demo: "https://coworking-final.vercel.app/login",
+    },
+  },
+  {
     id: "factus-ai",
     slug: "factus-ai",
     name: "FactusAI",
@@ -170,103 +233,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "control-habitos-movil",
-    slug: "control-habitos-movil",
-    name: "Control Hábitos UNICAH",
-    shortDescription:
-      "App móvil de seguimiento de hábitos con un módulo de IA universitaria: sugerencias, análisis de productividad, chat motivacional y rutinas.",
-    longDescription:
-      "Aplicación móvil para el seguimiento de hábitos cotidianos, desarrollada en equipo para la cátedra de Negocios Web II. Permite crear, editar y eliminar hábitos, con calendario de cumplimiento, rachas, estadísticas por hábito, notificaciones/alarmas personalizadas, modo oscuro y autenticación por correo o Google.\n\nSobre esa base se construyó un módulo adicional de \"IA Universitaria\" con 4 herramientas impulsadas por la API de OpenAI (modelo gpt-4o-mini): un sugeridor de hábitos personalizado según la carrera del estudiante, un análisis de productividad que revisa los hábitos registrados y da recomendaciones, un chat motivacional tipo coach universitario, y un generador de rutinas semanales adaptadas al semestre y objetivos del estudiante.\n\nMi rol incluyó el desarrollo de la app en Flutter/Dart, la integración con Firebase (Auth, Firestore, Storage y Cloud Messaging) y la construcción del servicio de IA (`ai_service.dart`) que gestiona las llamadas a la API de OpenAI y el diseño del contexto conversacional en español para el entorno académico hondureño.",
-    category: "mobile",
-    status: "completado",
-    featured: false,
-    date: "2026-03-01",
-    coverImage: {
-      src: "/images/projects/control-habitos-movil/login.webp",
-      alt: "Pantalla de inicio de sesión de Control Hábitos UNICAH con correo institucional y acceso con Google",
-    },
-    gallery: [
-      {
-        src: "/images/projects/control-habitos-movil/login.webp",
-        alt: "Pantalla de inicio de sesión con correo institucional UNICAH y acceso con Google",
-      },
-      {
-        src: "/images/projects/control-habitos-movil/nuevo-habito.webp",
-        alt: "Modal para crear un nuevo hábito con nombre, descripción, frecuencia y recordatorio",
-      },
-      {
-        src: "/images/projects/control-habitos-movil/ia-universitaria.webp",
-        alt: "Menú del módulo IA Universitaria con Sugeridor de Hábitos, Análisis de Productividad, Chat Motivacional y Generador de Rutinas",
-      },
-      {
-        src: "/images/projects/control-habitos-movil/estadisticas.webp",
-        alt: "Pantalla de estadísticas con hábitos activos, racha combinada y mejor racha",
-      },
-    ],
-    icon: "Sparkles",
-    color: "#2563EB",
-    technologies: [
-      { name: "Flutter", icon: "Smartphone" },
-      { name: "Dart", icon: "Smartphone" },
-      { name: "Firebase", icon: "Cloud" },
-      { name: "OpenAI API", icon: "Sparkles" },
-    ],
-    tags: ["universidad", "equipo", "ia", "movil"],
-    links: {
-      github: "https://github.com/CarJoshEly/ProyectoControlHabitos",
-    },
-  },
-  {
-    id: "control-habitos-web",
-    slug: "control-habitos-web",
-    name: "Control Hábitos UNICAH (Web)",
-    shortDescription:
-      "Migración de la app móvil a una plataforma web full-stack, con automatización real vía Zapier (3 Zaps) y asistente de IA.",
-    longDescription:
-      "Proyecto final de la cátedra de Negocios Web: migración y ampliación de Control Hábitos UNICAH desde Flutter hacia una plataforma web completa con Node.js + Express en el backend, React (Vite) en el frontend y Firebase como base de datos en la nube. Mantiene el módulo de autenticación exclusivo con correo institucional @unicah.edu, el dashboard de hábitos con calendario deslizable y estadísticas, el módulo de progreso/historial con heatmap, y el asistente de IA (OpenAI GPT-4o-mini) con chat motivacional, análisis de productividad, sugeridor de hábitos y generador de rutinas semanales.\n\nComo herramienta de automatización obligatoria del curso, integré Zapier con tres flujos reales conectados al backend mediante ngrok: un Zap que registra hábitos completados en Google Sheets cada hora, un reporte diario por correo con el resumen del día anterior, y un recordatorio automático por correo para el hábito programado en cada hora, con un paso de Filter by Zapier que evita enviar correos vacíos.\n\nLa seguridad de las rutas privadas se maneja con Firebase Admin SDK verificando tokens JWT en cada petición. La principal limitación identificada fue la dependencia de ngrok para exponer el backend local a los webhooks de Zapier — en producción esto se resolvería desplegando el backend en Render o Railway.",
-    category: "full-stack",
-    status: "completado",
-    featured: false,
-    date: "2026-04-08",
-    coverImage: {
-      src: "/images/projects/control-habitos-web/login.webp",
-      alt: "Pantalla de login de Control Hábitos UNICAH web con correo institucional y acceso con Google",
-    },
-    gallery: [
-      {
-        src: "/images/projects/control-habitos-web/login.webp",
-        alt: "Pantalla de login con correo institucional @unicah.edu y acceso con Google",
-      },
-      {
-        src: "/images/projects/control-habitos-web/dashboard-nuevo-habito.webp",
-        alt: "Dashboard con calendario semanal y modal de creación de un nuevo hábito",
-      },
-      {
-        src: "/images/projects/control-habitos-web/asistente-ia.webp",
-        alt: "Asistente de IA con pestañas de Chat, Análisis, Sugerencias y Rutina",
-      },
-      {
-        src: "/images/projects/control-habitos-web/perfil.webp",
-        alt: "Pantalla de perfil de usuario con preferencias de tema y notificaciones (correo difuminado)",
-      },
-    ],
-    icon: "Workflow",
-    color: "#1D4ED8",
-    technologies: [
-      { name: "React", icon: "Code2" },
-      { name: "Vite", icon: "Rocket" },
-      { name: "Node.js", icon: "Server" },
-      { name: "Express.js", icon: "Server" },
-      { name: "Firebase", icon: "Cloud" },
-      { name: "OpenAI API", icon: "Sparkles" },
-      { name: "Zapier", icon: "Workflow" },
-    ],
-    tags: ["universidad", "equipo", "automatizacion", "ia"],
-    links: {
-      github: "https://github.com/CarJoshEly/Control_Habitos_WEB",
-    },
-  },
-  {
     id: "gestor-vehiculos",
     slug: "gestor-vehiculos",
     name: "Gestor de Vehículos",
@@ -337,6 +303,103 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "control-habitos-web",
+    slug: "control-habitos-web",
+    name: "Control Hábitos UNICAH (Web)",
+    shortDescription:
+      "Migración de la app móvil a una plataforma web full-stack, con automatización real vía Zapier (3 Zaps) y asistente de IA.",
+    longDescription:
+      "Proyecto final de la cátedra de Negocios Web: migración y ampliación de Control Hábitos UNICAH desde Flutter hacia una plataforma web completa con Node.js + Express en el backend, React (Vite) en el frontend y Firebase como base de datos en la nube. Mantiene el módulo de autenticación exclusivo con correo institucional @unicah.edu, el dashboard de hábitos con calendario deslizable y estadísticas, el módulo de progreso/historial con heatmap, y el asistente de IA (OpenAI GPT-4o-mini) con chat motivacional, análisis de productividad, sugeridor de hábitos y generador de rutinas semanales.\n\nComo herramienta de automatización obligatoria del curso, integré Zapier con tres flujos reales conectados al backend mediante ngrok: un Zap que registra hábitos completados en Google Sheets cada hora, un reporte diario por correo con el resumen del día anterior, y un recordatorio automático por correo para el hábito programado en cada hora, con un paso de Filter by Zapier que evita enviar correos vacíos.\n\nLa seguridad de las rutas privadas se maneja con Firebase Admin SDK verificando tokens JWT en cada petición. La principal limitación identificada fue la dependencia de ngrok para exponer el backend local a los webhooks de Zapier — en producción esto se resolvería desplegando el backend en Render o Railway.",
+    category: "full-stack",
+    status: "completado",
+    featured: false,
+    date: "2026-04-08",
+    coverImage: {
+      src: "/images/projects/control-habitos-web/login.webp",
+      alt: "Pantalla de login de Control Hábitos UNICAH web con correo institucional y acceso con Google",
+    },
+    gallery: [
+      {
+        src: "/images/projects/control-habitos-web/login.webp",
+        alt: "Pantalla de login con correo institucional @unicah.edu y acceso con Google",
+      },
+      {
+        src: "/images/projects/control-habitos-web/dashboard-nuevo-habito.webp",
+        alt: "Dashboard con calendario semanal y modal de creación de un nuevo hábito",
+      },
+      {
+        src: "/images/projects/control-habitos-web/asistente-ia.webp",
+        alt: "Asistente de IA con pestañas de Chat, Análisis, Sugerencias y Rutina",
+      },
+      {
+        src: "/images/projects/control-habitos-web/perfil.webp",
+        alt: "Pantalla de perfil de usuario con preferencias de tema y notificaciones (correo difuminado)",
+      },
+    ],
+    icon: "Workflow",
+    color: "#1D4ED8",
+    technologies: [
+      { name: "React", icon: "Code2" },
+      { name: "Vite", icon: "Rocket" },
+      { name: "Node.js", icon: "Server" },
+      { name: "Express.js", icon: "Server" },
+      { name: "Firebase", icon: "Cloud" },
+      { name: "OpenAI API", icon: "Sparkles" },
+      { name: "Zapier", icon: "Workflow" },
+    ],
+    tags: ["universidad", "equipo", "automatizacion", "ia"],
+    links: {
+      github: "https://github.com/CarJoshEly/Control_Habitos_WEB",
+    },
+  },
+  {
+    id: "control-habitos-movil",
+    slug: "control-habitos-movil",
+    name: "Control Hábitos UNICAH",
+    shortDescription:
+      "App móvil de seguimiento de hábitos con un módulo de IA universitaria: sugerencias, análisis de productividad, chat motivacional y rutinas.",
+    longDescription:
+      "Aplicación móvil para el seguimiento de hábitos cotidianos, desarrollada en equipo para la cátedra de Negocios Web II. Permite crear, editar y eliminar hábitos, con calendario de cumplimiento, rachas, estadísticas por hábito, notificaciones/alarmas personalizadas, modo oscuro y autenticación por correo o Google.\n\nSobre esa base se construyó un módulo adicional de \"IA Universitaria\" con 4 herramientas impulsadas por la API de OpenAI (modelo gpt-4o-mini): un sugeridor de hábitos personalizado según la carrera del estudiante, un análisis de productividad que revisa los hábitos registrados y da recomendaciones, un chat motivacional tipo coach universitario, y un generador de rutinas semanales adaptadas al semestre y objetivos del estudiante.\n\nMi rol incluyó el desarrollo de la app en Flutter/Dart, la integración con Firebase (Auth, Firestore, Storage y Cloud Messaging) y la construcción del servicio de IA (`ai_service.dart`) que gestiona las llamadas a la API de OpenAI y el diseño del contexto conversacional en español para el entorno académico hondureño.",
+    category: "mobile",
+    status: "completado",
+    featured: false,
+    date: "2026-03-01",
+    coverImage: {
+      src: "/images/projects/control-habitos-movil/login.webp",
+      alt: "Pantalla de inicio de sesión de Control Hábitos UNICAH con correo institucional y acceso con Google",
+    },
+    gallery: [
+      {
+        src: "/images/projects/control-habitos-movil/login.webp",
+        alt: "Pantalla de inicio de sesión con correo institucional UNICAH y acceso con Google",
+      },
+      {
+        src: "/images/projects/control-habitos-movil/nuevo-habito.webp",
+        alt: "Modal para crear un nuevo hábito con nombre, descripción, frecuencia y recordatorio",
+      },
+      {
+        src: "/images/projects/control-habitos-movil/ia-universitaria.webp",
+        alt: "Menú del módulo IA Universitaria con Sugeridor de Hábitos, Análisis de Productividad, Chat Motivacional y Generador de Rutinas",
+      },
+      {
+        src: "/images/projects/control-habitos-movil/estadisticas.webp",
+        alt: "Pantalla de estadísticas con hábitos activos, racha combinada y mejor racha",
+      },
+    ],
+    icon: "Sparkles",
+    color: "#2563EB",
+    technologies: [
+      { name: "Flutter", icon: "Smartphone" },
+      { name: "Dart", icon: "Smartphone" },
+      { name: "Firebase", icon: "Cloud" },
+      { name: "OpenAI API", icon: "Sparkles" },
+    ],
+    tags: ["universidad", "equipo", "ia", "movil"],
+    links: {
+      github: "https://github.com/CarJoshEly/ProyectoControlHabitos",
+    },
+  },
+  {
     id: "chatbot-unicah",
     slug: "chatbot-unicah",
     name: "ChatBot UNICAH",
@@ -367,6 +430,7 @@ export const projects: Project[] = [
       github: "https://github.com/CarJoshEly/Chatbot-Unicah",
     },
   },
+
 ];
 
 validateProjects(projects);

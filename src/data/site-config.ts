@@ -2,8 +2,8 @@ export const siteConfig = {
   name: "Joseph Carabantes — Portfolio",
   title: "Joseph Carabantes — Full Stack Developer",
   description:
-    "Desarrollador especializado en aplicaciones web y móviles modernas, análisis de datos, APIs y sistemas administrativos. Explora proyectos, formación y forma de contacto.",
-  url: "https://tu-dominio.vercel.app",
+    "Soy desarrollador especializado en aplicaciones web y móviles modernas, análisis de datos, APIs y sistemas administrativos, etc. Interesado en desarrollo full stack, automatización y soluciones tecnológicas. Capacidad para trabajar en equipo, aprender rápidamente y adaptarse a nuevos entornos tecnológicos.",
+  url: "https://carabantesjoseph-portfolio.vercel.app",
   ogImage: "/og-image.png",
   author: {
     name: "Joseph Carabantes",

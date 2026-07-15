@@ -33,18 +33,11 @@ export default function SobreMiPage() {
             </h1>
             <div className="mt-6 space-y-4 text-text-secondary">
               <p>
-                Soy {siteConfig.author.role.toLowerCase()}, actualmente formándome en un programa
-                intensivo de desarrollo de software donde combino proyectos full stack con análisis
-                de datos y business intelligence.
-              </p>
-              <p>
-                Mi forma de trabajar parte de separar bien las responsabilidades: arquitectura
-                clara antes de escribir código, datos tipados antes de construir la interfaz, y
-                revisión honesta de cada decisión técnica antes de darla por terminada.
-              </p>
-              <p>
-                Fuera del código, me interesa entender el problema de negocio detrás de cada
-                producto — por eso complemento el desarrollo con dashboards y modelado de datos.
+                Soy desarrollador especializado en aplicaciones web y móviles modernas,
+                análisis de datos, APIs y sistemas administrativos, etc. Interesado en
+                desarrollo full stack, automatización y soluciones tecnológicas. Capacidad
+                para trabajar en equipo, aprender rápidamente y adaptarse a nuevos entornos
+                tecnológicos.
               </p>
             </div>
           </Reveal>
